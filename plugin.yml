@@ -1,0 +1,7 @@
+name: 'Missions'
+main: 'server\sega\Loader'
+version: '1.0.0'
+
+api: '2.0.0'
+author: 'sami'
+description: 'A simple missions player server plugin for PocketMine-MP.'
