@@ -2,6 +2,6 @@
 
 namespace server\sega;
 
-class Loader {
+class Loader extends PluginBase {
 
 }
