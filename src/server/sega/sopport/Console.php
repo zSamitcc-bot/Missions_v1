@@ -26,15 +26,6 @@ class Console {
     }
 
     public function init() {
-        echo "=== Test Console ===\n";
-
-        $msg = "HOLA MUNDO";
-        echo "tolower: " . $this->tolower($msg) . "\n";
-
-        $color = "&aMensaje verde";
-        echo "colors: " . $this->colors($color) . "\n";
-
-        echo "prefix: " . self::getPrefix() . "Servidor iniciado\n";
     }
 
 }
