@@ -30,22 +30,26 @@ class MainCommand extends Command {
     {
         if (!$sender instanceof Player) {
             $sender->sendMessage(Console::getPrefix(). 'NO GAME');
+            return;
         }
+
         $user = $sender->getName();
 
-        if (MainCommand::PlayerMissions()->getMissions($user) === 'chest' || MainCommand::PlayerMissions()->getMissions($user) === 'ore') {
+        $missions = MainCommand::PlayerMissions();
 
-            $sender->sendMessage(Console::getPrefix(). 'Estas en una mission');
+        if ($missions->asMission($user)) {
+
+            $sender->sendMessage(Console::getPrefix(). '§cYa tienes una mision activa:');
+
+            $missions->sendMissionMessage($sender);
 
             return;
         }
 
-        MainCommand::PlayerMissions()->setMissions($user);
-        
-        MainCommand::PlayerMissions()->sendMissionMessage($sender);
+        $missions->setMissions($user);
 
-        $sender->sendMessage(Console::getPrefix(). 'tu mission nueva es &7: &b'. MainCommand::PlayerMissions()->getMissions($user));
-        
-        
+        $sender->sendMessage(Console::getPrefix(). '§aTu mision nueva es:');
+
+        $missions->sendMissionMessage($sender);
     }
 }
